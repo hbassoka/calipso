@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+
+<h:head>
+    <title>Calipso - Home</title>
+
+    <!-- Bootstrap -->
+    <h:outputStylesheet library="webjars"
+        name="bootstrap/5.3.3/css/bootstrap.min.css"/>
+
+    <h:outputScript library="webjars"
+        name="bootstrap/5.3.3/js/bootstrap.bundle.min.js"/>
+
+</h:head>
+
+<h:body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Calipso</a>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mt-5">
+
+        <div class="row">
+            <div class="col-md-8">
+
+                <p:card>
+                    <f:facet name="title"><h:outputText value="#{homeBean.message}" /></f:facet>
+
+                    <p>
+                        Application Jakarta EE <strong>JSF + PrimeFaces</strong><br/>
+                        Bootstrap pour le layout.
+                    </p>
+
+                    <p:button value="Commencer"
+                              icon="pi pi-play"
+                              styleClass="btn btn-primary"/>
+                </p:card>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <p:card>
+                    <f:facet name="title">Environnement Technique</f:facet>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">JSF 4</li>
+                        <li class="list-group-item">PrimeFaces 15.0.0</li>
+                        <li class="list-group-item">Jquery 3.7.1</li>
+                        <li class="list-group-item">Bootstrap 5.3.3</li>
+                        <li class="list-group-item">EJB 3</li>
+                        <li class="list-group-item">Jakarta EE 10</li>
+                        <li class="list-group-item">Wildfly 28.0.1</li>
+                        <li class="list-group-item">Maven</li>
+                        <li class="list-group-item">Graddle</li>
+                        <li class="list-group-item">Java 17</li>
+                        <li class="list-group-item">PostgreSQL 18</li>
+                        <li class="list-group-item">REST</li>
+                        <li class="list-group-item">SOAP</li>
+                        <li class="list-group-item">Apache POI</li>
+                        <li class="list-group-item">BIRT</li>
+                    </ul>
+
+                </p:card>
+
+            </div>
+        </div>
+
+    </div>
+
+</h:body>
+</html>

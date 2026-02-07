@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.jdevhub</groupId>
+		<artifactId>calipso</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>calipso-web</artifactId>
+	<packaging>war</packaging>
+	<name>calipso-web</name>
+	<description>calipso-web compatible Jakarta EE 10 + PrimeFaces 15+</description>
+
+	<properties>
+		<jsf.version>4.0.0</jsf.version>
+		<primefaces.version>15.0.0</primefaces.version>
+		<bootstrap.version>5.3.3</bootstrap.version>
+		<jquery.version>3.7.1</jquery.version>
+	</properties>
+
+	<dependencies>
+		<!-- Jakarta EE 10 API (fournie par WildFly 27) -->
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- EJB module -->
+		<dependency>
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-ejb</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-model</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope> <!-- <- fourni par l'EAR -->
+		</dependency>
+
+
+		<!-- UI -->
+
+
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${primefaces.version}</version>
+			<classifier>jakarta</classifier>
+		</dependency>
+		<!-- PrimeFaces FileUpload (si utilisé) -->
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>primefaces-extensions</artifactId>
+			<version>${primefaces.version}</version>
+			<classifier>jakarta</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>${bootstrap.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>${jquery.version}</version>
+		</dependency>
+
+		<!-- JSTL (si besoin) -->
+		<dependency>
+			<groupId>jakarta.servlet.jsp.jstl</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+			<version>2.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>jakarta.servlet.jsp.jstl</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>calipso-web</finalName>
+		<plugins>
+			<!-- Compiler plugin -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<!-- WAR plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

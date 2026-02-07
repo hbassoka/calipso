@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.jdevhub</groupId>
+		<artifactId>calipso</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>calipso-ejb</artifactId>
+	<packaging>ejb</packaging>
+	<properties>
+		<org.apache.poi>5.2.3</org.apache.poi>
+		<org.apache.commons>1.22</org.apache.commons>
+		<org.eclipse.birt>4.17.0</org.eclipse.birt>
+	</properties>
+	<dependencies>
+		<!-- Jakarta EE fourni par WildFly -->
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Modèle métier -->
+		<dependency>
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-peristence</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!--  Pour Excel (XSSF et HSSF)-->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${org.apache.poi}</version> <!-- version stable récente -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${org.apache.poi}</version>
+		</dependency>
+
+		<!-- Optionnel : si tu as besoin de lire des formules complexes -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-full</artifactId>
+			<version>${org.apache.poi}</version>
+		</dependency>
+
+		<!-- Optionnel : pour gérer les fichiers Microsoft cryptés -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>${org.apache.commons}</version>
+		</dependency>
+
+		<!-- Pour Word / PowerPoint-->
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<version>${org.apache.poi}</version>
+		</dependency>
+
+		<!--  BIRT 
+		<dependency>
+			<groupId>org.eclipse.birt.runtime</groupId>
+			<artifactId>org.eclipse.birt.runtime</artifactId>
+			<version>${org.eclipse.birt}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.birt.runtime</groupId>
+			<artifactId>org.eclipse.birt.report.engine</artifactId>
+			<version>${org.eclipse.birt}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.birt.runtime</groupId>
+			<artifactId>org.eclipse.birt.report.viewer</artifactId>
+			<version>${org.eclipse.birt}</version>
+		</dependency>
+       -->
+
+	</dependencies>
+	<build>
+		<finalName>calipso-ejb</finalName>
+		<plugins>
+			<!-- Compiler plugin -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
