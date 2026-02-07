@@ -23,7 +23,7 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
-    <!-- Optional PrimeFaces settings -->
+    <!-- Optional PrimeFaces settings 
     <context-param>
         <param-name>primefaces.CLIENT_SIDE_VALIDATION</param-name>
         <param-value>true</param-value>
@@ -33,7 +33,7 @@
         <param-name>primefaces.UPLOADER</param-name>
         <param-value>native</param-value>
     </context-param>
-    
+    -->
     <!-- Session configuration -->
     <session-config>
         <session-timeout>30</session-timeout>

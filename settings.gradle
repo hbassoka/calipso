@@ -1,0 +1,16 @@
+rootProject.name = 'calipso'
+
+include 'calipso-model'
+
+include 'calipso-persistence'
+
+include 'calipso-ejb'
+
+include 'calipso-rest'
+
+include 'calipso-soap'
+
+include 'calipso-web'
+
+include 'calipso-ear'
+

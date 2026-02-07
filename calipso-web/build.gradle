@@ -1,0 +1,4 @@
+dependencies {
+    // Dépendances externes
+    implementation 'org.primefaces:primefaces:15.0.0'
+}

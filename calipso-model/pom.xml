@@ -23,5 +23,12 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
+      <build>		
+		<plugins>
+			<!-- Compiler plugin -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
