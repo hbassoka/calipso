@@ -1,5 +1,8 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.jdevhub</groupId>
     <artifactId>calipso</artifactId>
@@ -12,7 +15,8 @@
   <properties>
 		<org.apache.poi>5.2.3</org.apache.poi>
 		<org.apache.commons>1.22</org.apache.commons>
-		<org.eclipse.birt>4.17.0</org.eclipse.birt>
+		
+		<birt.version>4.13.0.0</birt.version>
 	</properties>
 	<dependencies>
 		<!-- Jakarta EE fourni par WildFly -->
@@ -69,25 +73,23 @@
 			<version>${org.apache.poi}</version>
 		</dependency>
 
-		<!--  BIRT 
+		<!--  BIRT -->
+		<!--  priorise 
 		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.birt.runtime</artifactId>
-			<version>${org.eclipse.birt}</version>
+		  <groupId>eu.eureka-bpo.birt</groupId>
+		  <artifactId>org.eclipse.birt.runtime</artifactId>
+		   <version>${birt.version}</version>
+		  <type>pom</type>
 		</dependency>
-
+		-->
+		<!-- alternative -->
+		
 		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.birt.report.engine</artifactId>
-			<version>${org.eclipse.birt}</version>
+		  <groupId>ch.reportingsoft.birt</groupId>
+		  <artifactId>birt-runtime-bundle</artifactId>
+		  <version>4.20.0</version>
+		  <type>pom</type>
 		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.birt.report.viewer</artifactId>
-			<version>${org.eclipse.birt}</version>
-		</dependency>
-       -->
 
 	</dependencies>
 	<build>
