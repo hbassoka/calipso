@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.jdevhub.calipso.model.Account;
 
-import jakarta.ejb.Local;
-
 
 
 public interface AccountDao {
