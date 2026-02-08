@@ -29,7 +29,12 @@
 		
 		<dependency>
 			<groupId>com.jdevhub</groupId>
-			<artifactId>calipso-peristence</artifactId>
+			<artifactId>calipso-model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-persistence</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

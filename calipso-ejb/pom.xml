@@ -44,6 +44,12 @@
 			<version>${project.version}</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-dto</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>calipso-ejb</finalName>
