@@ -28,5 +28,5 @@ dependencies {
 
     // Shared JARs (lib/)
     earlib project(":calipso-model")
-    earlib project(":calipso-persistence")
+    earlib project(":calipso-repository)
 }

@@ -19,8 +19,8 @@ public class Customer {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "account_id")
-	private Long id;
+	@Column(name = "customer_id")
+	private Integer id;
 	
 	@Column(name = "first_name" , length = 50)
 	private String firstname;
@@ -37,11 +37,11 @@ public class Customer {
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Account> accounts = new ArrayList<>();
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -82,7 +82,7 @@ public class Customer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Customer(Long id, String firstname, String lastname, String email, LocalDateTime creationDate) {
+	public Customer(Integer id, String firstname, String lastname, String email, LocalDateTime creationDate) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -92,7 +92,7 @@ public class Customer {
 		
 	}
 
-	public Customer(Long id, String firstname, String lastname, String email, LocalDateTime creationDate,
+	public Customer(Integer id, String firstname, String lastname, String email, LocalDateTime creationDate,
 			List<Account> accounts) {
 		super();
 		this.id = id;

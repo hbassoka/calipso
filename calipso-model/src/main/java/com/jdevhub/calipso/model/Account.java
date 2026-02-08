@@ -13,13 +13,13 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name ="account" )
+@Table(name = "account")
 public class Account {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "account_id")
-	private Long id;
+	private Integer id;
 	
 	 @Column(name = "account_number", length = 20, unique = true)
 	private String number;
@@ -34,11 +34,11 @@ public class Account {
     @JoinColumn(name = "customer_id")
 	private Customer customer;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -79,7 +79,7 @@ public class Account {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Account(Long id, String number, BigDecimal balance, LocalDateTime creationDate, Customer customer) {
+	public Account(Integer id, String number, BigDecimal balance, LocalDateTime creationDate, Customer customer) {
 		super();
 		this.id = id;
 		this.number = number;

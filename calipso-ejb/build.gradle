@@ -17,7 +17,7 @@ dependencies {
 
     // Service /Persistence / Model
     implementation project(":calipso-model")
-    implementation project(":calipso-persistence")
+    implementation project(":calipso-repository")
     implementation project(":calipso-service")
     
 }

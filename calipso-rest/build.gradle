@@ -8,7 +8,7 @@ dependencies {
 
     // Modules partagés – fournis par l'EAR
     compileOnly project(":calipso-model")
-    compileOnly project(":calipso-persistence")
+    compileOnly project(":calipso-repository")
     compileOnly project(":calipso-ejb")
 
     // Jakarta EE API (fourni par le serveur)

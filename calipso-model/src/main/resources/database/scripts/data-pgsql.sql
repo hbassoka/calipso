@@ -1,5 +1,5 @@
 -- Clients ayant 1 ou 2 comptes
-INSERT INTO Customer (first_name, last_name, email) VALUES
+INSERT INTO customer (first_name, last_name, email) VALUES
 ('Léa','Dubois','lea.dubois@example.com'),
 ('Maxime','Lefevre','maxime.lefevre@example.com'),
 ('Clara','Morel','clara.morel@example.com'),
@@ -12,7 +12,7 @@ INSERT INTO Customer (first_name, last_name, email) VALUES
 ('Nathan','Simon','nathan.simon@example.com');
 
 -- Clients n'ayant pas de comptes
-INSERT INTO Customer (first_name, last_name, email) VALUES
+INSERT INTO customer (first_name, last_name, email) VALUES
 ('Sophie','Marchand','sophie.marchand@example.com'),
 ('Lucas','Fontaine','lucas.fontaine@example.com'),
 ('Marie','Leclerc','marie.leclerc@example.com'),
@@ -23,7 +23,7 @@ INSERT INTO Customer (first_name, last_name, email) VALUES
 ('Antoine','Perrin','antoine.perrin@example.com');
 
 -- Comptes associés à un client
-INSERT INTO Account (account_number, balance, customer_id) VALUES
+INSERT INTO account (account_number, balance, customer_id) VALUES
 ('ACC2001', 1500.50, 1),
 ('ACC2002', 2300.75, 1),
 ('ACC2003', 1800.00, 2),
@@ -47,7 +47,7 @@ INSERT INTO Account (account_number, balance, customer_id) VALUES
 
 
 -- Comptes non associés à un client
-INSERT INTO Account (account_number, balance, customer_id) VALUES
+INSERT INTO account (account_number, balance, customer_id) VALUES
 ('ACC2021', 500.00, NULL),
 ('ACC2022', 1200.50, NULL),
 ('ACC2023', 300.75, NULL),

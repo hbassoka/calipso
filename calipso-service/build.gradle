@@ -17,7 +17,7 @@ dependencies {
 
     // Persistence / Model
     implementation project(":calipso-model")
-    implementation project(":calipso-persistence")
+    implementation project(":calipso-repository")
 
     // Apache POI – Excel (XSSF / HSSF)
     implementation "org.apache.poi:poi:${apachePoiVersion}"

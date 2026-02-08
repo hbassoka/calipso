@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
 }
 
-description = "calipso-persistence"
+description = "calipso-repository"
 
 dependencies {
     // Modèle métier partagé

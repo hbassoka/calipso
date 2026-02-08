@@ -2,7 +2,7 @@ rootProject.name = 'calipso'
 
 include 'calipso-model'
 
-include 'calipso-persistence'
+include 'calipso-repository'
 
 include 'calipso-service'
 

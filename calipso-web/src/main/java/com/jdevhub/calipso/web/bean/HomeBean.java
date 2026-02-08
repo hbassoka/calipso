@@ -1,4 +1,4 @@
-package com.jdevhub.calipso.web.beans;
+package com.jdevhub.calipso.web.bean;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;

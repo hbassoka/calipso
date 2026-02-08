@@ -4,6 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 
-public record CustomerDto(Long id, String firstname, String lastname, String email, LocalDateTime creationDate) {
+public record CustomerDto(Integer id, String firstname, String lastname, String email, LocalDateTime creationDate) {
 
 }
