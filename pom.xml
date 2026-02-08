@@ -60,12 +60,14 @@
     <modules>
 	    <module>calipso-model</module>
 	    <module>calipso-persistence</module>
+	    <module>calipso-service</module>
 	    <module>calipso-ejb</module>
 	    <module>calipso-web</module>
 	    <module>calipso-rest</module>
 	    <module>calipso-soap</module>
 	    <module>calipso-ear</module>
-	</modules>
+	    
+    </modules>
 
 
 </project>

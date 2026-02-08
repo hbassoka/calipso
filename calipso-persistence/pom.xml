@@ -16,7 +16,12 @@
   <description>calipso-persistence</description>
   
   <dependencies>
-		
+		<!-- Jakarta EE fourni par WildFly -->
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<!-- Modèle métier -->
 		<dependency>
 			<groupId>com.jdevhub</groupId>

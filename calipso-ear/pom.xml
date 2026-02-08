@@ -64,6 +64,12 @@
             <artifactId>calipso-persistence</artifactId>
             <version>${project.version}</version>
         </dependency>
+        
+        <dependency>
+            <groupId>com.jdevhub</groupId>
+            <artifactId>calipso-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
     </dependencies>
 

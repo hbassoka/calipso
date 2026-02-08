@@ -18,7 +18,7 @@ dependencies {
 
     // Modules internes
     implementation project(":calipso-ejb")
-
+    compileOnly project(":calipso-service") // fourni par l'EAR
     compileOnly project(":calipso-persistence") // fourni par l'EAR
     compileOnly project(":calipso-model")       // fourni par l'EAR
 

@@ -26,67 +26,24 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- Modèle métier -->
+		
+		<dependency>
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-service</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope> <!-- <- fourni par l'EAR -->
+		</dependency>
 		<dependency>
 			<groupId>com.jdevhub</groupId>
 			<artifactId>calipso-peristence</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
-		<!--  Pour Excel (XSSF et HSSF)-->
 		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>${org.apache.poi}</version> <!-- version stable récente -->
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-model</artifactId>
+			<version>${project.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>${org.apache.poi}</version>
-		</dependency>
-
-		<!-- Optionnel : si tu as besoin de lire des formules complexes -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml-full</artifactId>
-			<version>${org.apache.poi}</version>
-		</dependency>
-
-		<!-- Optionnel : pour gérer les fichiers Microsoft cryptés -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-compress</artifactId>
-			<version>${org.apache.commons}</version>
-		</dependency>
-
-		<!-- Pour Word / PowerPoint-->
-
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-scratchpad</artifactId>
-			<version>${org.apache.poi}</version>
-		</dependency>
-
-		<!--  BIRT 
-		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.birt.runtime</artifactId>
-			<version>${org.eclipse.birt}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.birt.report.engine</artifactId>
-			<version>${org.eclipse.birt}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.birt.report.viewer</artifactId>
-			<version>${org.eclipse.birt}</version>
-		</dependency>
-       -->
-
+		
 	</dependencies>
 	<build>
 		<finalName>calipso-ejb</finalName>

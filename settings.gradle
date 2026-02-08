@@ -4,6 +4,8 @@ include 'calipso-model'
 
 include 'calipso-persistence'
 
+include 'calipso-service'
+
 include 'calipso-ejb'
 
 include 'calipso-rest'

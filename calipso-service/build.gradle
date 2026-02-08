@@ -1,0 +1,45 @@
+plugins {
+    id 'java-library'
+}
+
+description = "calipso-service"
+
+ext {
+    apachePoiVersion = "5.2.3"
+    commonsCompressVersion = "1.22"
+    birtVersion = "4.17.0"
+}
+
+dependencies {
+
+    // Jakarta EE API (fourni par WildFly / Payara)
+    compileOnly "jakarta.platform:jakarta.jakartaee-api:${jakartaEeVersion}"
+
+    // Persistence / Model
+    implementation project(":calipso-model")
+    implementation project(":calipso-persistence")
+
+    // Apache POI – Excel (XSSF / HSSF)
+    implementation "org.apache.poi:poi:${apachePoiVersion}"
+    implementation "org.apache.poi:poi-ooxml:${apachePoiVersion}"
+
+    // Optionnel : formules Excel complexes
+    implementation "org.apache.poi:poi-ooxml-full:${apachePoiVersion}"
+
+    // Optionnel : fichiers Microsoft cryptés
+    implementation "org.apache.commons:commons-compress:${commonsCompressVersion}"
+
+    // Word / PowerPoint
+    implementation "org.apache.poi:poi-scratchpad:${apachePoiVersion}"
+
+    // ===== BIRT (désactivé comme dans le POM) =====
+    /*
+    implementation "org.eclipse.birt.runtime:org.eclipse.birt.runtime:${birtVersion}"
+    implementation "org.eclipse.birt.runtime:org.eclipse.birt.report.engine:${birtVersion}"
+    implementation "org.eclipse.birt.runtime:org.eclipse.birt.report.viewer:${birtVersion}"
+    */
+}
+
+jar {
+    archiveBaseName = "calipso-service"
+}
