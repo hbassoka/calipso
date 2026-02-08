@@ -34,10 +34,15 @@
 		</dependency>
 		<dependency>
 			<groupId>com.jdevhub</groupId>
-			<artifactId>calipso-model</artifactId>
+			<artifactId>calipso-dto</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
+        <dependency>
+			<groupId>com.jdevhub</groupId>
+			<artifactId>calipso-mapper</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		<!--  Pour Excel (XSSF et HSSF)-->
 		<dependency>
 			<groupId>org.apache.poi</groupId>

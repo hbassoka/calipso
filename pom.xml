@@ -1,9 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <modelVersion>4.0.0</modelVersion>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jdevhub</groupId>
     <artifactId>calipso</artifactId>
@@ -58,15 +57,18 @@
     </build>
 
     <modules>
-	    <module>calipso-model</module>
+	    <module>calipso-model</module>	    
 	    <module>calipso-persistence</module>
+	    <module>calipso-dto</module>
+	    <module>calipso-mapper</module>
 	    <module>calipso-service</module>
 	    <module>calipso-ejb</module>
 	    <module>calipso-web</module>
 	    <module>calipso-rest</module>
 	    <module>calipso-soap</module>
 	    <module>calipso-ear</module>
-	    
+
+	   
     </modules>
 
 

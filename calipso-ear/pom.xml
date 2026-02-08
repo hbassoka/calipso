@@ -61,6 +61,17 @@
 
         <dependency>
             <groupId>com.jdevhub</groupId>
+            <artifactId>calipso-dto</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+         <dependency>
+            <groupId>com.jdevhub</groupId>
+            <artifactId>calipso-mapper</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jdevhub</groupId>
             <artifactId>calipso-persistence</artifactId>
             <version>${project.version}</version>
         </dependency>

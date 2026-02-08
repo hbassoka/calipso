@@ -89,7 +89,21 @@ public class Customer {
 		this.lastname = lastname;
 		this.email = email;
 		this.creationDate = creationDate;
+		
 	}
+
+	public Customer(Long id, String firstname, String lastname, String email, LocalDateTime creationDate,
+			List<Account> accounts) {
+		super();
+		this.id = id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email = email;
+		this.creationDate = creationDate;
+		this.accounts = accounts;
+	}
+	
+	
 	
 	
 	
