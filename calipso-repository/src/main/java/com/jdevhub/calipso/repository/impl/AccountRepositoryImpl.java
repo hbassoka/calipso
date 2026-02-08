@@ -1,9 +1,9 @@
-package com.jdevhub.calipso.dao.impl;
+package com.jdevhub.calipso.repository.impl;
 
 import java.util.List;
 
-import com.jdevhub.calipso.dao.AccountDao;
 import com.jdevhub.calipso.model.Account;
+import com.jdevhub.calipso.repository.AccountRepository;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -14,7 +14,7 @@ import jakarta.transaction.Transactional;
 
 
 @ApplicationScoped
-public class AccountDaoImpl implements AccountDao{
+public class AccountRepositoryImpl implements AccountRepository{
 
 	@PersistenceContext(unitName = "CALIPSO")
 	private EntityManager em;

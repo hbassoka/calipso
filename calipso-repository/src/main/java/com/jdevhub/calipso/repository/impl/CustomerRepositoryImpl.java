@@ -1,9 +1,9 @@
-package com.jdevhub.calipso.dao.impl;
+package com.jdevhub.calipso.repository.impl;
 
 import java.util.List;
 
-import com.jdevhub.calipso.dao.CustomerDao;
 import com.jdevhub.calipso.model.Customer;
+import com.jdevhub.calipso.repository.CustomerRepository;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManager;
@@ -11,7 +11,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 @ApplicationScoped
-public class CustomerDaoImpl implements CustomerDao{
+public class CustomerRepositoryImpl implements CustomerRepository{
 
 	@PersistenceContext(unitName = "CALIPSO")
 	private EntityManager em;

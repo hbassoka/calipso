@@ -3,14 +3,13 @@ package com.jdevhub.calipso.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.jdevhub.calipso.dao.AccountDao;
 import com.jdevhub.calipso.dto.AccountDto;
 import com.jdevhub.calipso.mapper.AccountMapper;
 import com.jdevhub.calipso.model.Account;
+import com.jdevhub.calipso.repository.AccountRepository;
 import com.jdevhub.calipso.service.AccountService;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.inject.Default;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 
@@ -18,7 +17,7 @@ import jakarta.transaction.Transactional;
 public class AccountServiceImpl implements AccountService {
 
 	@Inject	
-    private AccountDao accountDao;
+    private AccountRepository accountDao;
 
     // --- CRUD Methods using DTOs ---
 

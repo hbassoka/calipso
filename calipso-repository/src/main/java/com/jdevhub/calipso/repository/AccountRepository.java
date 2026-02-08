@@ -1,4 +1,4 @@
-package com.jdevhub.calipso.dao;
+package com.jdevhub.calipso.repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import com.jdevhub.calipso.model.Account;
 
 
 
-public interface AccountDao {
+public interface AccountRepository {
 
 	Account findById(Long id);
 

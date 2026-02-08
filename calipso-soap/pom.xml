@@ -27,7 +27,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.jdevhub</groupId>
-			<artifactId>calipso-persistence</artifactId>
+			<artifactId>calipso-repository</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope> <!-- <- fourni par l'EAR -->
 		</dependency>

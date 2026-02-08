@@ -3,10 +3,10 @@ package com.jdevhub.calipso.service.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.jdevhub.calipso.dao.CustomerDao;
 import com.jdevhub.calipso.dto.CustomerDto;
 import com.jdevhub.calipso.mapper.CustomerMapper;
 import com.jdevhub.calipso.model.Customer;
+import com.jdevhub.calipso.repository.CustomerRepository;
 import com.jdevhub.calipso.service.CustomerService;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -17,7 +17,7 @@ import jakarta.transaction.Transactional;
 public class CustomerServiceImpl implements CustomerService {
 
 	@Inject
-    private CustomerDao customerDao;
+    private CustomerRepository customerDao;
 
     // --- CRUD Methods using DTOs ---
 

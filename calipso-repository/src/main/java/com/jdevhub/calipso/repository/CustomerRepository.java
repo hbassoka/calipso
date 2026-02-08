@@ -1,4 +1,4 @@
-package com.jdevhub.calipso.dao;
+package com.jdevhub.calipso.repository;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import jakarta.ejb.Local;
 
 
 
-public interface CustomerDao {
+public interface CustomerRepository {
 
 	Customer findById(Long id);
 

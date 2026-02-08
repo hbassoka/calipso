@@ -72,7 +72,7 @@
         </dependency>
         <dependency>
             <groupId>com.jdevhub</groupId>
-            <artifactId>calipso-persistence</artifactId>
+            <artifactId>calipso-repository</artifactId>
             <version>${project.version}</version>
         </dependency>
         
