@@ -1,0 +1,32 @@
+plugins {
+    id 'ear'
+}
+
+description = "calipso-ear"
+
+ear {
+    // Équivalent <version>7</version> (Jakarta EE 10)
+    deploymentDescriptor {
+        version = "7"
+        applicationName = "calipso-ear"
+        initializeInOrder = true
+    }
+
+    // Équivalent <defaultLibBundleDir>lib</defaultLibBundleDir>
+    libDirName = "lib"
+}
+
+dependencies {
+
+    // WAR modules
+    deploy project(path: ":calipso-web", configuration: "archives")
+    deploy project(path: ":calipso-soap", configuration: "archives")
+    deploy project(path: ":calipso-rest", configuration: "archives")
+
+    // EJB module
+    deploy project(path: ":calipso-ejb", configuration: "archives")
+
+    // Shared JARs (lib/)
+    earlib project(":calipso-model")
+    earlib project(":calipso-persistence")
+}

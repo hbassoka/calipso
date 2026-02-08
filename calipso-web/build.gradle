@@ -1,4 +1,49 @@
+plugins {
+    id 'war'
+}
+
+description = "calipso-web compatible Jakarta EE 10 + PrimeFaces 15+"
+
+ext {
+    jsfVersion = "4.0.0"
+    primefacesVersion = "15.0.0"
+    bootstrapVersion = "5.3.3"
+    jqueryVersion = "3.7.1"
+}
+
 dependencies {
-    // Dépendances externes
-    implementation 'org.primefaces:primefaces:15.0.0'
+
+    // Jakarta EE API (fourni par le serveur – WildFly / Payara / GlassFish)
+    compileOnly "jakarta.platform:jakarta.jakartaee-api:${jakartaEeVersion}"
+
+    // Modules internes
+    implementation project(":calipso-ejb")
+
+    compileOnly project(":calipso-persistence") // fourni par l'EAR
+    compileOnly project(":calipso-model")       // fourni par l'EAR
+
+    // UI
+    implementation("org.primefaces:primefaces:${primefacesVersion}") {
+        classifier = "jakarta"
+    }
+
+    implementation("org.primefaces.extensions:primefaces-extensions:${primefacesVersion}") {
+        classifier = "jakarta"
+    }
+
+    implementation "org.webjars:bootstrap:${bootstrapVersion}"
+    implementation "org.webjars:jquery:${jqueryVersion}"
+
+    // JSTL
+    compileOnly "jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:2.0.0"
+    implementation "org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0"
+}
+
+war {
+    archiveBaseName = "calipso-web"
+}
+
+tasks.withType(War).configureEach {
+    // équivalent à <failOnMissingWebXml>false</failOnMissingWebXml>
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

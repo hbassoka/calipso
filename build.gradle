@@ -1,27 +1,37 @@
 plugins {
-    id 'java' version '17.0.7' apply false
+    id 'java-library' apply false
+    id 'war' apply false
+}
+
+group = "com.jdevhub"
+version = "0.0.1-SNAPSHOT"
+
+ext {
+    javaVersion = JavaVersion.VERSION_17
+    jakartaEeVersion = "11.0.0"
 }
 
 allprojects {
-    group = 'com.jdevhub'
-    version = '0.0.1-SNAPSHOT'
-
     repositories {
         mavenCentral()
     }
 }
 
 subprojects {
+
     apply plugin: 'java'
 
-    sourceCompatibility = '17'
-    targetCompatibility = '17'
-
-    dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    java {
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
     }
 
-    test {
-        useJUnitPlatform()
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = "UTF-8"
+    }
+
+    dependencies {
+        // Jakarta EE API (provided)
+        compileOnly "jakarta.platform:jakarta.jakartaee-api:${jakartaEeVersion}"
     }
 }

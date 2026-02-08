@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="https://jakarta.ee/xml/ns/jakartaee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                                 https://jakarta.ee/xml/ns/jakartaee/application_10.xsd"
+             version="10">
+
+    <display-name>calipso-ear</display-name>
+
+    <module>
+        <web>
+            <web-uri>calipso-web.war</web-uri>
+            <context-root>/calipso-web</context-root>
+        </web>
+    </module>
+
+    <module>
+        <web>
+            <web-uri>calipso-soap.war</web-uri>
+            <context-root>/calipso-soap</context-root>
+        </web>
+    </module>
+
+    <module>
+        <web>
+            <web-uri>calipso-rest.war</web-uri>
+            <context-root>/calipso-rest</context-root>
+        </web>
+    </module>
+
+    <module>
+        <ejb>calipso-ejb.jar</ejb>
+    </module>
+
+</application>
