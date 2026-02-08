@@ -5,6 +5,6 @@ import jakarta.inject.Named;
 
 @Named
 @SessionScoped
-public class CustomerController {
+public class HomeController {
 
 }
