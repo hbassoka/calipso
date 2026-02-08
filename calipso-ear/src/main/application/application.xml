@@ -10,7 +10,7 @@
     <module>
         <web>
             <web-uri>calipso-web.war</web-uri>
-            <context-root>/calipso-web</context-root>
+            <context-root>/calipso</context-root>
         </web>
     </module>
 

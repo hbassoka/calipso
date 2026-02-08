@@ -1,7 +1,25 @@
 plugins {
-    id 'java-library'
+    id 'war'
 }
 
+description = "calipso-rest"
+
 dependencies {
+
+    // Modules partagés – fournis par l'EAR
+    compileOnly project(":calipso-model")
+    compileOnly project(":calipso-persistence")
+    compileOnly project(":calipso-ejb")
+
+    // Jakarta EE API (fourni par le serveur)
     compileOnly "jakarta.platform:jakarta.jakartaee-api:${jakartaEeVersion}"
+}
+
+war {
+    archiveBaseName = "calipso-rest"
+}
+
+tasks.withType(War).configureEach {
+    // équivalent <failOnMissingWebXml>false</failOnMissingWebXml>
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }

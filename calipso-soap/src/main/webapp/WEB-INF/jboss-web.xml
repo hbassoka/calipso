@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>/calipso-soap</context-root>
+</jboss-web>

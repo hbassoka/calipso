@@ -1,5 +1,10 @@
+plugins {
+    id 'java-library'
+}
+
+description = "calipso-persistence"
 
 dependencies {
-
-    implementation project(':calipso-model')
+    // Modèle métier partagé
+    implementation project(":calipso-model")
 }

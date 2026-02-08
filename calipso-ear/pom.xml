@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.jdevhub</groupId>
@@ -16,25 +16,32 @@
     <name>calipso-ear</name>
 
     <dependencies>
-        <!-- WAR + EJB modules -->
+
+        <!-- ===================== -->
+        <!-- Modules applicatifs   -->
+        <!-- ===================== -->
+
         <dependency>
             <groupId>com.jdevhub</groupId>
             <artifactId>calipso-web</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
+
         <dependency>
             <groupId>com.jdevhub</groupId>
             <artifactId>calipso-soap</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
+
         <dependency>
             <groupId>com.jdevhub</groupId>
             <artifactId>calipso-rest</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
+
         <dependency>
             <groupId>com.jdevhub</groupId>
             <artifactId>calipso-ejb</artifactId>
@@ -42,19 +49,22 @@
             <type>ejb</type>
         </dependency>
 
-        <!-- Model partagé -->
+        <!-- ===================== -->
+        <!-- Librairies partagées  -->
+        <!-- ===================== -->
+
         <dependency>
             <groupId>com.jdevhub</groupId>
             <artifactId>calipso-model</artifactId>
             <version>${project.version}</version>
-            <type>jar</type>
         </dependency>
+
         <dependency>
             <groupId>com.jdevhub</groupId>
             <artifactId>calipso-persistence</artifactId>
             <version>${project.version}</version>
-            <type>jar</type>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -62,33 +72,46 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.3.0</version>
+
                 <configuration>
-                    <version>7</version> <!-- Jakarta EE 10 -->
+
+                    <!-- Jakarta EE : PAS de version Java EE -->
+                    <generateApplicationXml>true</generateApplicationXml>
+
+                    <!-- Libs partagées -->
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
+
                     <modules>
+
                         <webModule>
                             <groupId>com.jdevhub</groupId>
-                            <artifactId>calipso-web</artifactId>
-                            <contextRoot>/calipso-web</contextRoot>
+                            <artifactId>calipso-web</artifactId>                            
+                            <contextRoot>calipso</contextRoot>                            
                         </webModule>
+
                         <webModule>
                             <groupId>com.jdevhub</groupId>
-                            <artifactId>calipso-soap</artifactId>
-                            <contextRoot>/calipso-soap</contextRoot>
+                            <artifactId>calipso-soap</artifactId>                          
+                            <contextRoot>calipso-soap</contextRoot>
                         </webModule>
+
                         <webModule>
                             <groupId>com.jdevhub</groupId>
-                            <artifactId>calipso-rest</artifactId>
-                            <contextRoot>/calipso-rest</contextRoot>
+                            <artifactId>calipso-rest</artifactId>                            
+                            <contextRoot>calipso-rest</contextRoot>
                         </webModule>
+
                         <ejbModule>
                             <groupId>com.jdevhub</groupId>
-                            <artifactId>calipso-ejb</artifactId>
+                            <artifactId>calipso-ejb</artifactId>                           
                         </ejbModule>
+
                     </modules>
+
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 

@@ -1,0 +1,10 @@
+plugins {
+    id 'java-library'
+}
+
+description = "calipso-model"
+
+dependencies {
+    // Jakarta EE API (fournie par le serveur / EAR)
+    compileOnly "jakarta.platform:jakarta.jakartaee-api:${jakartaEeVersion}"
+}
