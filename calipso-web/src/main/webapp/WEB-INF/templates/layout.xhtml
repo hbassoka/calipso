@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    
+    <!-- Bootstrap -->
+    <h:outputStylesheet library="webjars"  name="bootstrap/5.3.3/css/bootstrap.min.css"/>
+    <h:outputScript library="webjars"      name="bootstrap/5.3.3/js/bootstrap.bundle.min.js"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="primeflex.css"/>
+    <h:outputScript library="js" name="script.js"/>
+    
+    <title><ui:insert name="title">Mon Application JSF</ui:insert></title>
+</h:head>
+
+<h:body>
+    <!-- Layout principal -->
+    <p:layout fullPage="true" style="height:100vh;">
+
+        <!-- HEADER -->
+        <p:layoutUnit position="north" size="80" style="background-color:#1976d2; color:white;">
+            <h:outputText value="Mon Application JSF + PrimeFaces" style="font-weight:bold; font-size:1.2em;"/>
+        </p:layoutUnit>
+
+        <!-- MENU LATÉRAL -->
+        <p:layoutUnit position="west" size="220" collapsible="true" resizable="true" style="background-color:#f5f5f5;">
+            <p:menu styleClass="p-mt-2">
+                <p:menuitem value="Accueil" icon="pi pi-home" outcome="/pages/home.xhtml"/>
+                <p:menuitem value="Dashboard" icon="pi pi-chart-line" outcome="/pages/dashboard.xhtml"/>
+                <p:menuitem value="Paramètres" icon="pi pi-cog" outcome="/pages/settings.xhtml"/>
+            </p:menu>
+        </p:layoutUnit>
+
+        <!-- CONTENU CENTRAL -->
+        <p:layoutUnit position="center" style="padding:20px;">
+            <ui:insert name="content">
+                <h:outputText value="Contenu par défaut" />
+            </ui:insert>
+        </p:layoutUnit>
+
+        <!-- FOOTER -->
+        <p:layoutUnit position="south" size="50" style="background-color:#1976d2; color:white; text-align:center;">
+            <h:outputText value="© 2026 Mon Application JSF"/>
+        </p:layoutUnit>
+
+    </p:layout>
+</h:body>
+</html>
