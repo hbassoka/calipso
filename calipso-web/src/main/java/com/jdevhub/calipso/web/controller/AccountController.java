@@ -4,9 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jdevhub.calipso.dto.AccountDto;
+import com.jdevhub.calipso.ejb.AccountEJB;
+import com.jdevhub.calipso.ejb.CustomerEJB;
 import com.jdevhub.calipso.web.bean.AccountBean;
+import com.jdevhub.calipso.web.bean.CustomerBean;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.ejb.EJB;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Named;
 
@@ -25,6 +30,11 @@ public class AccountController implements Serializable{
     private AccountBean selectedAccount;
     
     private String dialogTitle;
+    
+    
+    @EJB
+    private AccountEJB accountEJB;
+    
     
 	public List<AccountBean> getAccounts() {
 		return accounts;
@@ -50,7 +60,57 @@ public class AccountController implements Serializable{
 	 public void init() {
 		 
 		 this.accounts=new ArrayList<>();
+		 
+		 List<AccountDto> listAccounts=accountEJB.findAll();
+		 
+		 
+		 for( AccountDto item : listAccounts) {
+			 
+			 if(item.customer()!=null)
+			 this.accounts.add(new AccountBean(item.id(),item.number(),item.balance(),item.creationDate(),
+					 new CustomerBean(item.customer().id(),
+							 item.customer().firstname(),
+							 item.customer().lastname(),
+							 item.customer().email(),
+							 item.customer().creationDate()							 
+				)
+					 
+			));
+		 }
+		 
 	 }
     
-    
+	   // Préparer l'ajout
+	    public void prepareView(AccountBean account) {
+	    	this.selectedAccount = account;
+	        this.dialogTitle = "Afficher un compte";
+	    }
+	    // Préparer l'ajout
+	    public void prepareCreate() {
+	    	this.selectedAccount = new AccountBean();
+	    	this.dialogTitle = "Nouveau compte";
+	    }
+
+	 // Préparer l'édition
+	    public void prepareEdit(AccountBean account) {
+	        this.selectedAccount = account;
+	        this.dialogTitle = "Modifier un  account";
+	    }
+	    
+	 // Enregistrer ou mettre à jour
+	    public void saveAccount() {
+	    	
+	        if (!accounts.contains(selectedAccount)) {
+	        		        		        	
+	            this.selectedAccount.setId(this.accounts.size()+1); // ID simple auto-incrément
+	            
+	            this.accounts.add(this.selectedAccount);
+	        }
+	    }
+
+	    // Supprimer
+	    public void deleteAccount(AccountBean account) {
+	    	this.accounts.remove(account);
+	    }
+
 }

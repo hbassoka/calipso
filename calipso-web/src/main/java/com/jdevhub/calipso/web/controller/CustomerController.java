@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.jdevhub.calipso.dto.CustomerDto;
 import com.jdevhub.calipso.ejb.CustomerEJB;
+import com.jdevhub.calipso.web.bean.AccountBean;
 import com.jdevhub.calipso.web.bean.CustomerBean;
 
 import jakarta.annotation.PostConstruct;
@@ -66,14 +67,20 @@ public class CustomerController implements Serializable{
 
     // Préparer l'ajout
     public void prepareCreate() {
-        selectedCustomer = new CustomerBean();
-        dialogTitle = "Add Customer";
+    	this.selectedCustomer = new CustomerBean();
+        this.dialogTitle = "Add Customer";
     }
 
+    
+ // Préparer l'ajout
+    public void prepareView(CustomerBean customer) {
+    	this.selectedCustomer = customer;
+    	this.dialogTitle = "Afficher un client";
+    }
     // Préparer l'édition
     public void prepareEdit(CustomerBean customer) {
-        selectedCustomer = customer;
-        dialogTitle = "Edit Customer";
+    	this.selectedCustomer = customer;
+    	this.dialogTitle = "Modification client";
     }
 
     // Enregistrer ou mettre à jour
@@ -91,6 +98,6 @@ public class CustomerController implements Serializable{
 
     // Supprimer
     public void deleteCustomer(CustomerBean customer) {
-        customers.remove(customer);
+    	this.customers.remove(customer);
     }
 }

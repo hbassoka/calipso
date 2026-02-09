@@ -18,6 +18,8 @@ public class AccountBean {
     private BigDecimal balance = BigDecimal.valueOf(0.00);
 			
 	private LocalDateTime  creationDate=LocalDateTime.now();
+	
+	private CustomerBean customer;
 
 	public Integer getId() {
 		return id;
@@ -51,6 +53,16 @@ public class AccountBean {
 		this.creationDate = creationDate;
 	}
 
+	
+
+	public CustomerBean getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerBean customer) {
+		this.customer = customer;
+	}
+
 	public AccountBean() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -62,6 +74,16 @@ public class AccountBean {
 		this.number = number;
 		this.balance = balance;
 		this.creationDate = creationDate;
+	}
+
+	public AccountBean(Integer id, String number, BigDecimal balance, LocalDateTime creationDate,
+			CustomerBean customer) {
+		super();
+		this.id = id;
+		this.number = number;
+		this.balance = balance;
+		this.creationDate = creationDate;
+		this.customer = customer;
 	}
 	
 	

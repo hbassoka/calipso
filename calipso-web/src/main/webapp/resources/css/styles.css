@@ -1,1 +1,22 @@
 @charset "UTF-8";
+
+.app-footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.app-footer a {
+    color: #0d6efd;
+    text-decoration: none;
+    margin: 0 0.3rem;
+}
+
+.app-footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-author {
+    margin-top: 0.3rem;
+}

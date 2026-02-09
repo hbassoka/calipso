@@ -1,16 +1,96 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/layout.xhtml">
 
-    <ui:define name="title">Accueil</ui:define>
+    <ui:define name="title">Liste des comptes</ui:define>
+
     <ui:define name="content">
+    
+    <h:form id="accountForm">
+    
+      <!-- Bouton Ajouter -->
+            <p:commandButton value="Nouveau compte" icon="pi pi-plus" 
+                             actionListener="#{accountController.prepareCreate}" 
+                             update="accountForm"
+                             oncomplete="PF('accountDialog').show();"/>
+     <p:spacer height="10"/>
      
-      <div class="container mt-5">
-        <p>Liste des comptes</p>
-       </div>            
-        
+      <!-- DataTable -->
+            <p:dataTable id="accountTable" var="item" value="#{accountController.accounts}" 
+                         paginator="true" rows="10" 
+                         selection="#{accountController.selectedAccount}" 
+                         selectionMode="single" 
+                         rowKey="#{item.id}" 
+                         styleClass="p-datatable-gridlines">
+
+                <p:column headerText="ID">
+                    <h:outputText value="#{item.id}" />
+                </p:column>
+
+                <p:column headerText="Numéro">
+                    <h:outputText value="#{item.number}" />
+                </p:column>
+
+                <p:column headerText="Solde">
+                    <h:outputText value="#{item.balance}" />
+                </p:column>
+                
+				<p:column headerText="Titulaire">
+				    <h:outputText value="#{item.customer.firstname}" />
+				    <h:outputText value=" " />
+				    <h:outputText value="#{item.customer.lastname}" />
+				</p:column>
+
+                <p:column headerText="Actions" style="width:150px">
+                
+                    <p:commandButton icon="pi pi-eye" title="Afficher"
+                                     actionListener="#{accountController.prepareView(item)}" 
+                                     update="accountForm"
+                                     oncomplete="PF('accountDialog').show();"/>
+                                     
+                    <p:commandButton icon="pi pi-pencil" title="Modifier"
+                                     actionListener="#{accountController.prepareEdit(item)}" 
+                                     update="accountForm"
+                                     oncomplete="PF('accountDialog').show();"/>
+                    
+                    <p:commandButton icon="pi pi-trash" title="Supprimer"
+                                     actionListener="#{accountController.deleteAccount(item)}" 
+                                     update="accountTable"
+                                     process="@this"
+                                     styleClass="p-button-danger"/>
+                </p:column>
+
+            </p:dataTable>
+     
+            <!-- Dialog Add / Edit -->
+            <p:dialog id="accountDialog" header="#{accountController.dialogTitle}" 
+                      widgetVar="accountDialog" modal="true" resizable="false">
+
+                <h:panelGrid columns="2" cellpadding="5">
+                
+                    <h:outputLabel for="number" value="Numéro : "/>
+                    <p:inputText id="number" value="#{accountController.selectedAccount.number}" required="true"/>
+                    
+                    <h:outputLabel for="balance" value="Solde : "/>
+                    <p:inputText id="balance" value="#{accountController.selectedAccount.balance}" required="true"/>
+
+                   
+                </h:panelGrid>
+
+                <p:separator/>
+
+                <p:commandButton value="Enregistrer" 
+                                 actionListener="#{accountController.saveAccount}" 
+                                 update="accountTable"
+                                 oncomplete="PF('accountDialog').hide();"/>
+                <p:commandButton value="Cancel" onclick="PF('accountDialog').hide();" type="button"/>
+            </p:dialog>
+            
+    </h:form>
+    
+    
     </ui:define>
 </ui:composition>

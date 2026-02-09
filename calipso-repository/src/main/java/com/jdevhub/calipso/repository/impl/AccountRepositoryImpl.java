@@ -28,7 +28,7 @@ public class AccountRepositoryImpl implements AccountRepository{
 
     @Override
     public List<Account> findAll() {
-        return em.createQuery("SELECT a FROM Account a", Account.class)
+        return em.createQuery("SELECT a FROM Account a INNER JOIN a.customer c", Account.class)
                  .getResultList();
     }
 
