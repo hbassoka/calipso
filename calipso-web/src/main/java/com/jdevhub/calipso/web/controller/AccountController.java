@@ -81,24 +81,29 @@ public class AccountController implements Serializable{
 	 }
     
 	   // Préparer l'ajout
-	    public void prepareView(AccountBean account) {
+	    public String prepareView(AccountBean account) {
 	    	this.selectedAccount = account;
 	        this.dialogTitle = "Afficher un compte";
+	        
+	        return "view";
 	    }
 	    // Préparer l'ajout
-	    public void prepareCreate() {
+	    public String prepareCreate() {
 	    	this.selectedAccount = new AccountBean();
 	    	this.dialogTitle = "Nouveau compte";
+	    	
+	    	return "add";
 	    }
 
 	 // Préparer l'édition
-	    public void prepareEdit(AccountBean account) {
+	    public String prepareEdit(AccountBean account) {
 	        this.selectedAccount = account;
 	        this.dialogTitle = "Modifier un  account";
+	        return "edit";
 	    }
 	    
 	 // Enregistrer ou mettre à jour
-	    public void saveAccount() {
+	    public String saveAccount() {
 	    	
 	        if (!accounts.contains(selectedAccount)) {
 	        		        		        	
@@ -106,6 +111,8 @@ public class AccountController implements Serializable{
 	            
 	            this.accounts.add(this.selectedAccount);
 	        }
+	        
+	        return "list?faces-redirect=true";
 	    }
 
 	    // Supprimer

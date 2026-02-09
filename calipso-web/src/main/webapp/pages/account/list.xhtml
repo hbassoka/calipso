@@ -12,10 +12,14 @@
     <h:form id="accountForm">
     
       <!-- Bouton Ajouter -->
-            <p:commandButton value="Nouveau compte" icon="pi pi-plus" 
-                             actionListener="#{accountController.prepareCreate}" 
-                             update="accountForm"
-                             oncomplete="PF('accountDialog').show();"/>
+        <p:commandButton value="Nouveau compte" icon="pi pi-plus" 
+                         actionListener="#{accountController.prepareCreate()}" 
+                         />
+                         
+          <p:commandButton value="Export Excel" icon="pi pi-send" 
+                         actionListener="#{accountController.prepareCreate()}" 
+                         update="accountForm"
+                         oncomplete="PF('accountDialog').show();"/>
      <p:spacer height="10"/>
      
       <!-- DataTable -->
@@ -53,19 +57,16 @@
                                      
                     <p:commandButton icon="pi pi-pencil" title="Modifier"
                                      actionListener="#{accountController.prepareEdit(item)}" 
-                                     update="accountForm"
-                                     oncomplete="PF('accountDialog').show();"/>
+                                     />
                     
                     <p:commandButton icon="pi pi-trash" title="Supprimer"
-                                     actionListener="#{accountController.deleteAccount(item)}" 
-                                     update="accountTable"
-                                     process="@this"
+                                     actionListener="#{accountController.deleteAccount(item)}"
                                      styleClass="p-button-danger"/>
                 </p:column>
 
             </p:dataTable>
      
-            <!-- Dialog Add / Edit -->
+            <!-- Dialog Add / Edit 
             <p:dialog id="accountDialog" header="#{accountController.dialogTitle}" 
                       widgetVar="accountDialog" modal="true" resizable="false">
 
@@ -88,6 +89,8 @@
                                  oncomplete="PF('accountDialog').hide();"/>
                 <p:commandButton value="Cancel" onclick="PF('accountDialog').hide();" type="button"/>
             </p:dialog>
+            
+            -->
             
     </h:form>
     

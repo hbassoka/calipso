@@ -12,9 +12,14 @@
 
             <!-- Bouton Ajouter -->
             <p:commandButton value="Nouveau client" icon="pi pi-plus" 
-                             actionListener="#{customerController.prepareCreate}" 
+                             actionListener="#{customerController.prepareCreate()}" 
                              update="customerForm"
                              oncomplete="PF('customerDialog').show();"/>
+                             
+              <p:commandButton value="Export Excel" icon="pi pi-send" 
+                         actionListener="#{customerController.prepareCreate()}" 
+                         update="customerForm"
+                         oncomplete="PF('customerDialog').show();"/>
             
             <p:spacer height="10"/>
 
@@ -46,48 +51,20 @@
                 <p:column headerText="Actions" style="width:150px">
                 
                     <p:commandButton icon="pi pi-eye" title="Afficher"
-                                     actionListener="#{customerController.prepareView(item)}" 
-                                     update="customerForm"
-                                     oncomplete="PF('customerDialog').show();"/>
+                                     actionListener="#{customerController.prepareView(item)}"/>    
                                      
                     <p:commandButton icon="pi pi-pencil" title="Modifier"
                                      actionListener="#{customerController.prepareEdit(item)}" 
-                                     update="customerForm"
-                                     oncomplete="PF('customerDialog').show();"/>
+                                     />
                     
                     <p:commandButton icon="pi pi-trash" title="Supprimer"
                                      actionListener="#{customerController.deleteCustomer(item)}" 
-                                     update="customerTable"
-                                     process="@this"
                                      styleClass="p-button-danger"/>
                 </p:column>
 
             </p:dataTable>
 
-            <!-- Dialog Add / Edit -->
-            <p:dialog id="customerDialog" header="#{customerController.dialogTitle}" 
-                      widgetVar="customerDialog" modal="true" resizable="false">
-
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel for="lastname" value="Nom:"/>
-                    <p:inputText id="lastname" value="#{customerController.selectedCustomer.lastname}" required="true"/>
-                    
-                    <h:outputLabel for="firstname" value="Prénom:"/>
-                    <p:inputText id="firstname" value="#{customerController.selectedCustomer.firstname}" required="true"/>
-
-                    <h:outputLabel for="email" value="Email:"/>
-                    <p:inputText id="email" value="#{customerController.selectedCustomer.email}" required="true"/>
-                </h:panelGrid>
-
-                <p:separator/>
-
-                <p:commandButton value="Enregistrer" 
-                                 actionListener="#{customerController.saveCustomer}" 
-                                 update="customerTable"
-                                 oncomplete="PF('customerDialog').hide();"/>
-                <p:commandButton value="Cancel" onclick="PF('customerDialog').hide();" type="button"/>
-            </p:dialog>
-
+           
         </h:form>
     </ui:define>
 </ui:composition>

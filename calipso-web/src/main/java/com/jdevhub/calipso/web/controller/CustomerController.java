@@ -84,7 +84,7 @@ public class CustomerController implements Serializable{
     }
 
     // Enregistrer ou mettre à jour
-    public void saveCustomer() {
+    public String saveCustomer() {
     	
         if (!customers.contains(selectedCustomer)) {
         	
@@ -94,6 +94,8 @@ public class CustomerController implements Serializable{
             
             customers.add(selectedCustomer);
         }
+        
+        return "list?faces-redirect=true";
     }
 
     // Supprimer
